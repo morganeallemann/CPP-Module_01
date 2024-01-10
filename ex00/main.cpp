@@ -19,5 +19,6 @@ int main()
     zombie = newZombie("Paul");
     zombie->announce();
     randomChump("Laurent");
+    delete  zombie;
     return (0);
 }
