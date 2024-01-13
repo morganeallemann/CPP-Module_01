@@ -14,12 +14,17 @@
 
 Harl::Harl()
 {
+    std::cout << "|-----------------------------|" << std::endl;
+    std::cout << "|Welcome to Harl's complaints!|" << std::endl;
+    std::cout << "|-----------------------------|" << std::endl;
 
 }
 
 Harl::~Harl()
 {
-
+    std::cout << "|-------------------------------|" << std::endl;
+    std::cout << "|See you soon for new complaints|" << std::endl;
+    std::cout << "|-------------------------------|" << std::endl;
 }
 
 void    Harl::debug(void)
@@ -44,5 +49,21 @@ void    Harl::error(void)
 
 void    Harl::complain(std::string level)
 {
+    void        (Harl::*complainFunction[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string str[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    int         i = 0;
 
+    while (i < 4)
+    {
+        if (str[i] == level)
+        {
+            (this->*complainFunction[i])();
+            break;
+        }
+        i++;
+    }
+    if (i == 4)
+        std::cout << "Error: Invalid level name" << std::endl;
+
+    return ;
 }

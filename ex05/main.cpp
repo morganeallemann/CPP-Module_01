@@ -14,11 +14,13 @@
 
 int main()
 {
-    Harl    debug;
-    Harl    info;
-    Harl    warning;
-    Harl    error;
-    Harl    complain;
+    Harl harl;
 
-    
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("DEBUG");
+    harl.complain("ERROR");
+    harl.complain("TEST");
+
+    return (0);
 }
